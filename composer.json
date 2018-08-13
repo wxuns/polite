@@ -1,0 +1,13 @@
+{
+  "name": "wxuns/yaf-demo",
+  "description": "this is a simple demo of yaf-framework",
+  "keywords": ["framework", "yaf"],
+  "license": "MIT",
+  "type": "project",
+  "require": {
+    "php": "^7.0",
+    "filp/whoops": "^2.2",
+    "symfony/var-dumper": "^4.1",
+    "twig/twig": "^2.5"
+  }
+}

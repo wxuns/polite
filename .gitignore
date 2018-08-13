@@ -1,0 +1,8 @@
+/node_modules
+Homestead.yaml
+Homestead.json
+.env
+.idea/
+/vendor
+/composer.lock
+/storage/logs/
