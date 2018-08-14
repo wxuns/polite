@@ -2,7 +2,7 @@
 Homestead.yaml
 Homestead.json
 .env
-/.idea
+/.idea/
 /vendor
 /composer.lock
 /storage/logs/
