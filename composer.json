@@ -8,6 +8,7 @@
     "php": "^7.0",
     "filp/whoops": "^2.2",
     "symfony/var-dumper": "^4.1",
-    "twig/twig": "^2.5"
+    "twig/twig": "^2.5",
+    "robmorgan/phinx": "^0.10.5"
   }
 }
