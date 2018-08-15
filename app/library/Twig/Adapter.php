@@ -8,7 +8,7 @@
  */
 namespace Twig;
 
-class Adapter implements Yaf\View_Interface
+class Adapter implements \Yaf\View_Interface
 {
     protected static $loader;
     protected static $twig;
@@ -20,20 +20,81 @@ class Adapter implements Yaf\View_Interface
         $this::$twig = new \Twig_Environment($this::$loader,$options);
     }
 
+    /**
+     * 为视图引擎分配一个模板变量, 在视图模板中可以直接通过${$name}获取模板变量值
+     * @param $name
+     * @param null $value
+     */
+    public function __set($name,$value = NULL)
+    {
+        $this->variables[$name] = $value;
+    }
+
+    /**
+     * 获取视图引擎的一个模板变量值
+     * @param $name
+     * @return mixed
+     */
+    public function __get($name)
+    {
+        return $this->variables[$name];
+    }
+
+    /**
+     * 为视图引擎分配一个模板变量, 在视图模板中可以直接通过${$name}获取模板变量值
+     * @param $name
+     * @param null $value
+     */
     public function assign($name,$value = NULL)
     {
         $this->variables[$name] = $value;
     }
 
+    /**
+     * 渲染一个视图模板, 得到结果
+     * @param $view_path
+     * @param null $tpl_vars
+     * @return string
+     * @throws \Throwable
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
     public function render($view_path,$tpl_vars = NULL)
     {
         if ( is_array($tpl_vars) ) {
             $this->variables = array_merge($this->variables, $tpl_vars);
         }
-        return $this::$twig->render($view_path, $this->variables);
+        return $this::$twig->loadTemplate($view_path)->render($this->variables);
     }
-    public function display()
-    {
 
+    /**
+     * 渲染一个视图模板, 并直接输出给请求端
+     * @param $view_path
+     * @param null $tpl_vars
+     * @throws \Twig_Error_Loader
+     * @throws \Twig_Error_Runtime
+     * @throws \Twig_Error_Syntax
+     */
+    public function display($view_path,$tpl_vars = NULL)
+    {
+        echo $this::$twig->render($view_path, $tpl_vars);
+    }
+
+    /**
+     * 设置模板的基目录|可在ini中直接设置
+     * @param $view_directory
+     */
+    public function setScriptPath($view_directory)
+    {
+        $this::$loader->setPaths($view_directory);
+    }
+
+    /**
+     * 获取当前的模板目录
+     */
+    public function getScriptPath()
+    {
+        return $this::$loader->getPaths();
     }
 }

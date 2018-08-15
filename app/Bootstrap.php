@@ -62,7 +62,9 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      * 视图
      * @param \Yaf\Dispatcher $dispatcher
      */
-	public function _initView(Yaf\Dispatcher $dispatcher){
-        $dispatcher->initView(APPLICATION_PATH . "/resources/views/")->assign("webroot", ini_get('yaf.environ'));
+	public function _initTwig(Yaf\Dispatcher $dispatcher){
+	    $config = Yaf\Registry::get('config');
+	    $twig = new \Twig\Adapter($config->application->view->template,$config->twig->toArray());
+	    $dispatcher->getInstance()->setView($twig);
 	}
 }
