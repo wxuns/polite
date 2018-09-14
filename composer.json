@@ -1,7 +1,7 @@
 {
   "name": "wxuns/yaf-demo",
   "description": "this is a simple demo of yaf-framework",
-  "keywords": ["framework", "yaf"],
+  "keywords": ["framework", "yaf" , "wxuns"],
   "license": "MIT",
   "type": "project",
   "require": {
@@ -11,12 +11,13 @@
     "twig/twig": "^2.5",
     "robmorgan/phinx": "^0.10.5",
     "illuminate/database": "^5.6",
-    "illuminate/events": "^5.6"
+    "illuminate/events": "^5.6",
+    "doctrine/dbal": "^2.8"
   },
   "autoload": {
     "psr-4": {
-      "App\\Models\\": "application/models",
-      "App\\Controller\\": "application/controllers"
+      "App\\Databases\\": "app/databases",
+      "App\\Controller\\": "app/controllers"
     }
   }
 }

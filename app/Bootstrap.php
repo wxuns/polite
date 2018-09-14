@@ -81,6 +81,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
         $capsule->setAsGlobal();
         // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
         $capsule->bootEloquent();
+
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
     }
 }
