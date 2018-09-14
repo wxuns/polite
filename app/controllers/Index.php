@@ -27,4 +27,27 @@ class IndexController extends Yaf\Controller_Abstract {
 		//4. render by Yaf, 如果这里返回FALSE, Yaf将不会调用自动视图引擎Render模板
         return TRUE;
 	}
+
+	public function demoAction(){
+		if($msg = apcu_fetch('msg')){
+			echo $msg . "</br>";
+		}else{
+			echo 'i am from db'. "</br>";
+			apcu_add('msg','i am from apcu',20);
+		}
+		$redis = new Redis();
+		$redis->pconnect('redis-12919.c1.asia-northeast1-1.gce.cloud.redislabs.com',12919);
+		$redis->auth('CrWfT4ukslnNVs1SFXOyMxQ672BumAAI');
+        if($msgs = $redis->get('msg')){
+            echo $msgs;
+        }else{
+            echo 'i am from db';
+            $redis->set('msg','i am from redis');
+        }
+		return false;
+	}
+	public function infoAction(){
+	    phpinfo();
+	    return false;
+    }
 }
