@@ -4,6 +4,13 @@
   "keywords": ["framework", "yaf" , "wxuns"],
   "license": "MIT",
   "type": "project",
+  "authors": [
+    {
+      "name": "wxuns(lizhixu)",
+      "email": "php7ml@gmail.com",
+      "homepage": "https://lizhixu.cn"
+    }
+  ],
   "require": {
     "php": "^7.0",
     "filp/whoops": "^2.2",
