@@ -13,6 +13,8 @@ class IndexController extends Yaf\Controller_Abstract {
      * 对于如下的例子, 当访问http://yourhost/Sample/index/index/index/name/Administrator 的时候, 你就会发现不同
      */
 	public function indexAction($name = "Stranger") {
+	    $user = DB::table('user')->where('user_id',1)->get();
+	    dump($user);
 		//1. fetch query
 		$get = $this->getRequest()->getQuery("get", "default value");
 
