@@ -27,21 +27,24 @@ class IndexController extends Yaf\Controller_Abstract {
 	}
 
 	public function demoAction(){
-		if($msg = apcu_fetch('msg')){
-			echo $msg . "</br>";
-		}else{
-			echo 'i am from db'. "</br>";
-			apcu_add('msg','i am from apcu',20);
-		}
+//		if($msg = apcu_fetch('msg')){
+//			echo $msg . "</br>";
+//		}else{
+//			echo 'i am from db'. "</br>";
+//			apcu_add('msg','i am from apcu',20);
+//		}
 		$redis = new Redis();
 		$redis->pconnect('redis-12919.c1.asia-northeast1-1.gce.cloud.redislabs.com',12919);
 		$redis->auth('CrWfT4ukslnNVs1SFXOyMxQ672BumAAI');
-        if($msgs = $redis->get('msg')){
-            echo $msgs;
-        }else{
-            echo 'i am from db';
-            $redis->set('msg','i am from redis');
+        for($i = 0;$i<500;$i++){
+            echo $redis->get('msg'.$i). "</br>";
         }
+//        if($msgs = $redis->get('msg')){
+//            echo $msgs;
+//        }else{
+//            echo 'i am from db';
+//            $redis->set('msg','i am from redis');
+//        }
 		return false;
 	}
 	public function infoAction(){
