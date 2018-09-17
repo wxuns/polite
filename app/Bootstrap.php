@@ -7,6 +7,7 @@
  * 这些方法, 都接受一个参数:Yaf\Dispatcher $dispatcher
  * 调用的次序, 和申明的次序相同
  */
+use Illuminate\Database\Capsule\Manager as DB;
 class Bootstrap extends Yaf\Bootstrap_Abstract{
     /**
      * composer自动加载
@@ -81,7 +82,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
         $capsule->setAsGlobal();
         // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
         $capsule->bootEloquent();
-
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
+        new \Provider\ServiceProvider();
     }
 }
