@@ -78,11 +78,11 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
         $config = Yaf\Registry::get('config')->database;
         $capsule = new \Illuminate\Database\Capsule\Manager();
         $capsule->addConnection($config->toArray());
-        $capsule->setEventDispatcher(new \Illuminate\Events\Dispatcher(new \Illuminate\Container\Container));
+        $capsule->setEventDispatcher(new \Provider\ServiceProvider());
         $capsule->setAsGlobal();
         // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
         $capsule->bootEloquent();
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
-        new \Provider\ServiceProvider();
+
     }
 }
