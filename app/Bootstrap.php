@@ -34,6 +34,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      */
     public function _initErrors()
     {
+        $extend = new Handler\SystemFacade();
         $whoops = new Whoops\Run();
         $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler);//whoops json报错
         $whoops->register();
