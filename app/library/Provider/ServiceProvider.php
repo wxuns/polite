@@ -18,7 +18,7 @@ class ServiceProvider implements Dispatcher {
      */
     public function __construct()
     {
-        $this::$config = \yaf\Registry::get('config')->seaslog;
+        $this::$config = \yaf\Registry::get('config')->application;
     }
 
     /**
@@ -84,9 +84,9 @@ class ServiceProvider implements Dispatcher {
                     $sql = preg_replace('/\\?/', "'". addslashes( $v)."'", $sql,1);
                 }
             }
-
-            \SeasLog::setBasePath($this::$config->databases->path);
-            \SeasLog::log('DB',$sql . '{time}',['time'=>$event->time]);
+            \SeasLog::setBasePath($this::$config->log->path);
+            \SeasLog::setLogger('db');
+            \SeasLog::log('DB',$sql . ' | time:{time}',['time'=>$event->time]);
         }
         // TODO: Implement dispatch() method.
     }

@@ -9,6 +9,7 @@
  */
 use Illuminate\Database\Capsule\Manager as DB;
 class Bootstrap extends Yaf\Bootstrap_Abstract{
+    protected static $config = '';
     /**
      * composer自动加载
      */
@@ -25,6 +26,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
 		//把配置保存起来
 		$arrConfig = Yaf\Application::app()->getConfig();
 		Yaf\Registry::set('config', $arrConfig);
+		$this::$config = Yaf\Registry::get('config');
 	}
 
     /**
@@ -65,8 +67,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      */
 	public function _initTwig(Yaf\Dispatcher $dispatcher)
     {
-	    $config = Yaf\Registry::get('config');
-	    $twig = new \Twig\Adapter($config->application->view->template,$config->twig->toArray());
+	    $twig = new \Twig\Adapter($this::$config->application->view->template,$this::$config->twig->toArray());
 	    $dispatcher->getInstance()->setView($twig);
 	}
 
@@ -75,14 +76,15 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      */
 	public function _initDB()
     {
-        $config = Yaf\Registry::get('config')->database;
+        $config = $this::$config->database;
         $capsule = new \Illuminate\Database\Capsule\Manager();
         $capsule->addConnection($config->toArray());
-        $capsule->setEventDispatcher(new \Provider\ServiceProvider());
+        if ($this::$config->application->database->log){
+            $capsule->setEventDispatcher(new \Provider\ServiceProvider());
+        }
         $capsule->setAsGlobal();
         // Setup the Eloquent ORM... (optional; unless you've used setEventDispatcher())
         $capsule->bootEloquent();
         class_alias('\Illuminate\Database\Capsule\Manager', 'DB');
-
     }
 }
