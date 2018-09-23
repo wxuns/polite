@@ -34,9 +34,13 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      */
     public function _initErrors()
     {
-        $extend = new Handler\SystemFacade();
+        $config = $this::$config;
         $whoops = new Whoops\Run();
         $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler);//whoops json报错
+        if ($config->application->error->log){
+            $whoops->pushHandler(new \Handler\ResponseHandler());//记录错误日志
+        }
+
         $whoops->register();
     }
 
@@ -80,6 +84,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
         $config = $this::$config->database;
         $capsule = new \Illuminate\Database\Capsule\Manager();
         $capsule->addConnection($config->toArray());
+        //保存数据库日志
         if ($this::$config->application->database->log){
             $capsule->setEventDispatcher(new \Provider\ServiceProvider());
         }
