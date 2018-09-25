@@ -29,6 +29,6 @@ class ResponseHandler extends Handler{
     {
         \SeasLog::setBasePath($this::$config->log->path);
         \SeasLog::setLogger('error');
-        \SeasLog::log('yaf.error',$e->getMessage() . " | in line " .$e->getLine());
+        \SeasLog::log('yaf.error',$e->getMessage() . " | ".$e->getFile() . " in line " .$e->getLine());
     }
 }

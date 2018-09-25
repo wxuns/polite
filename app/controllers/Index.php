@@ -12,7 +12,7 @@ class IndexController extends Yaf\Controller_Abstract {
      * 对于如下的例子, 当访问http://yourhost/Sample/index/index/index/name/Administrator 的时候, 你就会发现不同
      */
 	public function indexAction($name = "Stranger") {
-        $city = new \App\ORM\City();
+        $city = new CityModel();
         $c = $city->where('ID','<=',30)->get();
 		$model = new SampleModel();
 		$this->getView()->assign("content", $model->selectSample());
