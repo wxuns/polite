@@ -13,9 +13,7 @@
   ],
   "require": {
     "php": "^7.0",
-    "filp/whoops": "^2.2",
     "twig/twig": "^2.5",
-    "robmorgan/phinx": "^0.10.5",
     "illuminate/database": "^5.6",
     "illuminate/events": "^5.6",
     "doctrine/dbal": "^2.8",
@@ -23,7 +21,9 @@
   },
   "require-dev": {
     "symfony/var-dumper": "^4.1",
-    "symfony/console": "^4.1"
+    "symfony/console": "^4.1",
+    "robmorgan/phinx": "^0.10.5",
+    "filp/whoops": "^2.2"
   },
   "autoload": {
     "psr-4": {
