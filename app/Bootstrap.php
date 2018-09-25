@@ -7,7 +7,6 @@
  * 这些方法, 都接受一个参数:Yaf\Dispatcher $dispatcher
  * 调用的次序, 和申明的次序相同
  */
-use Illuminate\Database\Capsule\Manager as DB;
 class Bootstrap extends Yaf\Bootstrap_Abstract{
     protected static $config = '';
     /**
@@ -34,7 +33,6 @@ class Bootstrap extends Yaf\Bootstrap_Abstract{
      */
     public function _initErrors()
     {
-        $extend = new Handler\SystemFacade();
         $whoops = new Whoops\Run();
         $whoops->pushHandler(new \Whoops\Handler\JsonResponseHandler);//whoops json报错
         $whoops->register();
