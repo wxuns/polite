@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "App\\ORM\\": "app/orm",
+      "App\\Console\\": "app/console",
       "App\\Controllers\\": "app/controllers"
     }
   }
