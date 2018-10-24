@@ -23,7 +23,8 @@
     "symfony/var-dumper": "^4.1",
     "symfony/console": "^4.1",
     "robmorgan/phinx": "^0.10.5",
-    "filp/whoops": "^2.2"
+    "filp/whoops": "^2.2",
+    "wxuns/console": "^1.0"
   },
   "autoload": {
     "psr-4": {
