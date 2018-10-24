@@ -13,7 +13,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MakeFile extends Command
+class Version extends Command
 {
     protected function configure()
     {
@@ -36,7 +36,14 @@ class MakeFile extends Command
     protected function execute(InputInterface $input,OutputInterface $output)
     {
         $output->writeln([
-            ""
+            "     _ _ _   _ _    _     _ _ _ _ _ _ _ _ _ ",
+            "    / _ _ \/ _ _ \/ /   / /\_ _ _ _/ _ _ _ /",
+            "   / /_ / / /  / / /   / /   / /  / /_ _ _",
+            "  / /_ _ / /  / / /   / /   / /  / /_ _ _/",
+            " / /    / /_ / / /_ _/ /   / /  / /_ _ _ ",
+            "/_/     \_ _ _/\_ _ /_/   \_/   \_ _ _ _/",
+            "",
         ]);
+        $output->writeln("<info>Polite version v1.0.1 2018.10.16 21:31:30</info>");
     }
 }

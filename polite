@@ -6,10 +6,11 @@ require __DIR__.'/vendor/autoload.php';
 
 use \Symfony\Component\Console\Application;
 
-$application = new Application();
+$application = new Application('polite console','1.0.1');
 
 // ... register commands
 
-$application->add(new \Console\MakeFile());
+$application->add(new \Console\Version());
+$application->add(new \Console\Make\MakeController());
 
 $application->run();
