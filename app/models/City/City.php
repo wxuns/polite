@@ -6,6 +6,7 @@
  * Date: 2018/9/25
  * Time: 19:44
  */
+namespace City;
 class CityModel extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = "city";

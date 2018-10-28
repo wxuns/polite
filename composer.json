@@ -24,7 +24,7 @@
     "symfony/console": "^4.1",
     "robmorgan/phinx": "^0.10.5",
     "filp/whoops": "^2.2",
-    "wxuns/console": "^1.0"
+    "wxuns/console": "^1.2"
   },
   "autoload": {
     "psr-4": {

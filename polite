@@ -12,5 +12,6 @@ $application = new Application('polite console','1.0.1');
 
 $application->add(new Polite\Console\Version());
 $application->add(new Polite\Console\Maker\MakeController());
+$application->add(new Polite\Console\Maker\MakeModel());
 
 $application->run();
