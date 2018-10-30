@@ -1,5 +1,5 @@
+[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/wxuns/polite)
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/wxuns/polite)
-
 **Polite做了那些事**
 ----
 1. 一个基于yaf的PHP框架
