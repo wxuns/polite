@@ -1,7 +1,26 @@
-可以按照以下步骤来部署和运行程序:
-1.请确保机器Administrator@wxuns已经安装了Yaf框架, 并且已经加载入PHP;
-2.把Sample目录Copy到Webserver的DocumentRoot目录下;
-3.需要在php.ini里面启用如下配置，生产的代码才能正确运行：
-	yaf.environ="product"
-4.重启Webserver;
-5.访问http://yourhost/Sample/,出现Hellow Word!, 表示运行成功,否则请查看php错误日志;
+[![Build Status](https://travis-ci.org/wxuns/polite)](https://travis-ci.org/laravel/lumen-framework)
+[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/wxuns/polite)
+**Polite做了那些事**
+----
+1. 一个基于yaf的PHP框架
+2. 支持composer
+3. 类似于Laravel的命令行工具
+4. 数据库迁移
+5. 集成Seaslog高性能日志扩展
+6.  ...
+
+**扩展要求**
+----
+编译安装yaf、seaslog扩展
+
+**安装步骤**
+----
+~~polite目前还处于测试开发中，不建议生产环境中使用~~
+```php
+composer create-project wxuns/polite
+git clone https://github.com/wxuns/polite.git
+```
+
+**License**
+----
+[Polite框架](https://github.com/wxuns/polite.git "Polite框架")基于[MIT license](http://opensource.org/licenses/MIT)进行开源
