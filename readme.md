@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/wxuns/polite)
+[![Build Status](https://api.travis-ci.org/wxuns/polite.svg)](https://travis-ci.org/wxuns/polite)
 [![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/wxuns/polite)
 
 **Polite做了那些事**
