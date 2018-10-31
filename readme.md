@@ -22,6 +22,10 @@ composer create-project wxuns/polite
 git clone https://github.com/wxuns/polite.git
 ```
 
+**文档**
+----
+在线查看文档[Polite框架](https://doc.wxuns.cn "Polite框架文档")
+
 **License**
 ----
 [Polite框架](https://github.com/wxuns/polite.git "Polite框架")基于[MIT license](http://opensource.org/licenses/MIT)进行开源
