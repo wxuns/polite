@@ -24,7 +24,7 @@ git clone https://github.com/wxuns/polite.git
 
 **文档**
 ----
-在线查看文档[Polite框架](https://doc.wxuns.cn "Polite框架文档")
+在线查看文档[Polite框架文档](https://doc.wxuns.cn "Polite框架文档")
 
 **License**
 ----
