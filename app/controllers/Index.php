@@ -24,7 +24,6 @@ class IndexController extends Yaf\Controller_Abstract {
 	}
 
 	public function infoAction(){
-	    phpinfo();
 	    return false;
     }
 }
