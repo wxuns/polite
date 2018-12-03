@@ -4,12 +4,15 @@
  * Author: wxuns <wxuns@wxuns.cn>
  * Link: http://wxuns.cn
  * Date: 2018/9/16
- * Time: 18:22
+ * Time: 18:22.
  */
+
 namespace Provider;
+
 use Illuminate\Contracts\Events\Dispatcher;
 
-class ServiceProvider implements Dispatcher {
+class ServiceProvider implements Dispatcher
+{
     protected static $config = [];
 
     /**
@@ -24,8 +27,9 @@ class ServiceProvider implements Dispatcher {
     /**
      * Register an event listener with the dispatcher.
      *
-     * @param  string|array $events
-     * @param  mixed $listener
+     * @param string|array $events
+     * @param mixed        $listener
+     *
      * @return void
      */
     public function listen($events, $listener)
@@ -36,7 +40,8 @@ class ServiceProvider implements Dispatcher {
     /**
      * Determine if a given event has listeners.
      *
-     * @param  string $eventName
+     * @param string $eventName
+     *
      * @return bool
      */
     public function hasListeners($eventName)
@@ -47,7 +52,8 @@ class ServiceProvider implements Dispatcher {
     /**
      * Register an event subscriber with the dispatcher.
      *
-     * @param  object|string $subscriber
+     * @param object|string $subscriber
+     *
      * @return void
      */
     public function subscribe($subscriber)
@@ -58,8 +64,9 @@ class ServiceProvider implements Dispatcher {
     /**
      * Dispatch an event until the first non-null response is returned.
      *
-     * @param  string|object $event
-     * @param  mixed $payload
+     * @param string|object $event
+     * @param mixed         $payload
+     *
      * @return array|null
      */
     public function until($event, $payload = [])
@@ -70,23 +77,24 @@ class ServiceProvider implements Dispatcher {
     /**
      * Dispatch an event and call the listeners.
      *
-     * @param  string|object $event
-     * @param  mixed $payload
-     * @param  bool $halt
+     * @param string|object $event
+     * @param mixed         $payload
+     * @param bool          $halt
+     *
      * @return array|null
      */
     public function dispatch($event, $payload = [], $halt = false)
     {
         if ($event instanceof  \Illuminate\Database\Events\QueryExecuted) {
-            $sql=$event->sql;
+            $sql = $event->sql;
             if ($event->bindings) {
-                foreach($event->bindings as $v) {
-                    $sql = preg_replace('/\\?/', "'". addslashes( $v)."'", $sql,1);
+                foreach ($event->bindings as $v) {
+                    $sql = preg_replace('/\\?/', "'".addslashes($v)."'", $sql, 1);
                 }
             }
             \SeasLog::setBasePath($this::$config->log->path);
             \SeasLog::setLogger('db');
-            \SeasLog::log('DB',$sql . ' | time:{time}',['time'=>$event->time]);
+            \SeasLog::log('DB', $sql.' | time:{time}', ['time'=>$event->time]);
         }
         // TODO: Implement dispatch() method.
     }
@@ -94,8 +102,9 @@ class ServiceProvider implements Dispatcher {
     /**
      * Register an event and payload to be fired later.
      *
-     * @param  string $event
-     * @param  array $payload
+     * @param string $event
+     * @param array  $payload
+     *
      * @return void
      */
     public function push($event, $payload = [])
@@ -106,7 +115,8 @@ class ServiceProvider implements Dispatcher {
     /**
      * Flush a set of pushed events.
      *
-     * @param  string $event
+     * @param string $event
+     *
      * @return void
      */
     public function flush($event)
@@ -117,7 +127,8 @@ class ServiceProvider implements Dispatcher {
     /**
      * Remove a set of listeners from the dispatcher.
      *
-     * @param  string $event
+     * @param string $event
+     *
      * @return void
      */
     public function forget($event)
@@ -138,9 +149,10 @@ class ServiceProvider implements Dispatcher {
     /**
      * Fire an event and call the listeners.
      *
-     * @param  string|object $event
-     * @param  mixed $payload
-     * @param  bool $halt
+     * @param string|object $event
+     * @param mixed         $payload
+     * @param bool          $halt
+     *
      * @return array|null
      */
     public function fire($event, $payload = [], $halt = false)

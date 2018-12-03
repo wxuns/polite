@@ -32,6 +32,5 @@ class MyNewMigration extends AbstractMigration
      */
     public function change()
     {
-
     }
 }
