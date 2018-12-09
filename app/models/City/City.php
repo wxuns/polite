@@ -9,7 +9,7 @@
 
 namespace City;
 
-class City extends \Illuminate\Database\Eloquent\Model
+class CityModel extends \Illuminate\Database\Eloquent\Model
 {
     protected $table = 'city';
     protected $primaryKey = 'ID';
