@@ -1,5 +1,5 @@
 <?php
 
-class TestController extends Yaf\Controller_Abstract {
-
+class TestController extends Yaf\Controller_Abstract
+{
 }

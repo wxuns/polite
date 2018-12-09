@@ -1,11 +1,13 @@
 <?php
+
 namespace Handler;
 
 use Whoops\Handler\Handler;
 
-class ResponseHandler extends Handler{
-
+class ResponseHandler extends Handler
+{
     public static $config = '';
+
     public function __construct()
     {
         $this::$config = \Yaf\Registry::get('config')->application;
@@ -22,13 +24,14 @@ class ResponseHandler extends Handler{
     }
 
     /**
-     * 日志保存
+     * 日志保存.
+     *
      * @param $e
      */
     public function saveLog($e)
     {
         \SeasLog::setBasePath($this::$config->log->path);
         \SeasLog::setLogger('error');
-        \SeasLog::log('yaf.error',$e->getMessage() . " | ".$e->getFile() . " in line " .$e->getLine());
+        \SeasLog::log('yaf.error', $e->getMessage().' | '.$e->getFile().' in line '.$e->getLine());
     }
 }
