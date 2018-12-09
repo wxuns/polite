@@ -17,13 +17,13 @@
     "illuminate/database": "^5.6",
     "illuminate/events": "^5.6",
     "doctrine/dbal": "^2.8",
-    "illuminate/pagination": "^5.6",
-    "doctrine/orm": "^2.6"
+    "illuminate/pagination": "^5.6"
   },
   "require-dev": {
     "symfony/var-dumper": "^4.1",
     "filp/whoops": "^2.2",
-    "wxuns/console": "^1.2"
+    "wxuns/console": "dev-master",
+    "wxuns/migration": "dev-master"
   },
   "autoload": {
     "psr-4": {
