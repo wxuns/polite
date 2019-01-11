@@ -16,6 +16,9 @@ class IndexController extends Yaf\Controller_Abstract
      */
     public function indexAction($name = 'Stranger')
     {
+        $a = ['lisi'=>['name'=>122]];
+        $b = ['lisi'=>['age'=>1221]];
+        dump(array_merge_recursive($a,$b));
         $city = new City\CityModel();
         $c = $city->where('ID', '<=', 30)->get();
         $model = new SampleModel();

@@ -9,5 +9,4 @@ use \Symfony\Component\Console\Application;
 $application = new Application('polite console','1.0.1');
 
 // ... register commands
-$application->addCommands(\Polite\Console\Commands::Commands());
-$application->run();
+\Polite\Console\Command::AddConsole();

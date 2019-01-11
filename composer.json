@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "Console\\": "Console",
+      "Console\\": "app/library/Console",
       "App\\Controllers\\": "app/controllers"
     }
   }
