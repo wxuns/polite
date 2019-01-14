@@ -1,13 +1,10 @@
 #!/usr/bin/env php
 <?php
-// application.php
+// autoload
 
 require __DIR__.'/vendor/autoload.php';
 
-use \Symfony\Component\Console\Application;
-
-
-$application = new Application('polite console','1.0.1');
-
 // ... register commands
-\Polite\Console\Command::AddConsole();
+$ConsoleCommand = ConsoleCommand();
+
+\Polite\Console\Console::AddCommands($ConsoleCommand);
