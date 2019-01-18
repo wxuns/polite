@@ -6,7 +6,7 @@
  * Date: 2018/8/5
  * Time: 15:45.
  */
-class UserController extends Yaf\Controller_Abstract
+class UserController extends BaseController
 {
     public function init()
     {

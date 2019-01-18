@@ -1,10 +1,10 @@
 #!/usr/bin/env php
 <?php
 // autoload
-
 require __DIR__.'/vendor/autoload.php';
+
+define('BASE_PATH',__DIR__);
 
 // ... register commands
 $ConsoleCommand = ConsoleCommand();
-
 \Polite\Console\Console::AddCommands($ConsoleCommand);

@@ -1,5 +1,8 @@
 <?php
 
-class TestController extends Yaf\Controller_Abstract {
-
+class TestController extends BaseController {
+    public function HelloAction(){
+        echo 221;
+        return false;
+    }
 }
