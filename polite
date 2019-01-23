@@ -1,14 +1,13 @@
 #!/usr/bin/env php
 <?php
-// application.php
-
+// autoload
 require __DIR__.'/vendor/autoload.php';
 
-use \Symfony\Component\Console\Application;
-
-
-$application = new Application('polite console','1.0.1');
+define('BASE_PATH',__DIR__);
 
 // ... register commands
-$application->addCommands(\Polite\Console\Commands::Commands());
-$application->run();
+$ConsoleCommand = ConsoleCommand();
+$MigrationCommand = MigrationCommand();
+$command = array_merge($ConsoleCommand,$MigrationCommand);
+
+\Polite\Console\Console::AddCommands($command);
