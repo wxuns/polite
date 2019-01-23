@@ -5,3 +5,4 @@ Homestead.json
 /.idea/
 /vendor
 /composer.lock
+./admin
