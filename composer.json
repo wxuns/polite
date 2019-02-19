@@ -1,6 +1,6 @@
 {
-  "name": "wxuns/yaf-demo",
-  "description": "this is a simple demo of yaf-framework",
+  "name": "wxuns/polite",
+  "description": "High Performance and Extensible PHP Framework",
   "keywords": ["framework", "yaf" , "wxuns"],
   "license": "MIT",
   "type": "project",
@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "php": "^7.1.3",
+    "php": "^7.*",
     "ext-yaf": "*",
     "ext-seaslog": "*",
     "twig/twig": "^2.5",
