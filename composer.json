@@ -24,7 +24,7 @@
     "symfony/var-dumper": "^4.1",
     "filp/whoops": "^2.2",
     "wxuns/console": "dev-master",
-    "wxuns/migration": "dev-master"
+    "wxuns/migration": "^1.0"
   },
   "autoload": {
     "psr-4": {
