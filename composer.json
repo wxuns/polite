@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "php": "^7.*",
+    "php": ">=7.0",
     "ext-yaf": "*",
     "ext-seaslog": "*",
     "twig/twig": "^2.5",
