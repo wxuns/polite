@@ -28,8 +28,11 @@
   },
   "autoload": {
     "psr-4": {
-      "Console\\": "app/library/Console",
+      "App\\Console\\": "app/library/Console",
       "App\\Controllers\\": "app/controllers"
-    }
+    },
+    "files": [
+      "app/library/Console/Command.php"
+    ]
   }
 }

@@ -2,7 +2,7 @@
 
 class TestController extends BaseController {
     public function HelloAction(){
-        echo 221;
+        echo 'this is a modules test';
         return false;
     }
 }

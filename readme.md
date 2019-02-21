@@ -1,5 +1,7 @@
+[![Latest Stable Version](https://poser.pugx.org/wxuns/polite/v/stable)](https://packagist.org/packages/wxuns/polite)
+[![Total Downloads](https://poser.pugx.org/wxuns/polite/downloads)](https://packagist.org/packages/wxuns/polite)
 [![Build Status](https://api.travis-ci.org/wxuns/polite.svg)](https://travis-ci.org/wxuns/polite)
-[![License](https://poser.pugx.org/laravel/lumen-framework/license.svg)](https://packagist.org/packages/wxuns/polite)
+[![License](https://poser.pugx.org/wxuns/polite/license)](https://packagist.org/packages/wxuns/polite)
 
 **Polite做了那些事**
 ----
@@ -16,7 +18,6 @@
 
 **安装步骤**
 ----
-~~polite目前还处于测试开发中，不建议生产环境中使用~~
 ```php
 composer create-project wxuns/polite
 git clone https://github.com/wxuns/polite.git

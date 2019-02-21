@@ -8,6 +8,7 @@ define('BASE_PATH',__DIR__);
 // ... register commands
 $ConsoleCommand = ConsoleCommand();
 $MigrationCommand = MigrationCommand();
-$command = array_merge($ConsoleCommand,$MigrationCommand);
+$CustomCommand = CustomCommand();
+$command = array_merge($ConsoleCommand,$MigrationCommand,$CustomCommand);
 
 \Polite\Console\Console::AddCommands($command);

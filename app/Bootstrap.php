@@ -67,8 +67,9 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     public function _initRoute(Yaf\Dispatcher $dispatcher)
     {
         $router = $dispatcher->getRouter();
-        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
-        $router->addConfig($config->routes);
+        $router->addRoute('tt',new \Route\Route());
+//        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
+//        $router->addConfig($config->routes);
     }
 
     /**
