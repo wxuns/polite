@@ -1,8 +1,9 @@
 <?php
-/**
- * Created by L.
- * Author: wxuns
- * Link: https://www.wxuns.cn
- * Date: 2019/2/21
- * Time: 14:55
- */
+
+Route::get('/', 'IndexController@index');
+Route::get('/login', 'IndexController@loginShow');
+Route::post('/login', 'IndexController@login');
+
+Route::group(['prefix' => '/admin', 'middleware' => 'admin'],function () {
+    Route::get('/', 'HomeController@index');
+});
