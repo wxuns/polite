@@ -9,5 +9,8 @@
 use Yaf\Controller_Abstract as YafController;
 abstract class BaseController extends YafController
 {
-
+    public function init()
+    {
+        dump($this->getRequest()->getRequest());
+    }
 }
