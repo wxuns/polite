@@ -14,15 +14,11 @@ class IndexController extends BaseController
      * Yaf支持直接把Yaf\Request\Abstract::getParam()得到的同名参数作为Action的形参
      * 对于如下的例子, 当访问http://yourhost/Sample/index/index/index/name/Administrator 的时候, 你就会发现不同.
      */
-    public function indexAction($name = 'Stranger')
+    public function indexAction($name = 'Polite')
     {
-        $city = new City\CityModel();
-        $c = $city->where('ID', '<=', 30)->get();
         $model = new SampleModel();
         $this->getView()->assign('content', $model->selectSample());
         $this->getView()->assign('name', $name);
-        $this->getView()->assign('city', $c);
-        $this->getView()->assign('token',Csrf::generate( 'csrf_token' ));
         //4. render by Yaf, 如果这里返回FALSE, Yaf将不会调用自动视图引擎Render模板
         return true;
     }

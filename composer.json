@@ -17,8 +17,7 @@
     "ext-seaslog": "*",
     "twig/twig": "^2.5",
     "illuminate/database": "^5.6",
-    "doctrine/dbal": "^2.9",
-    "pimple/pimple": "^3.2"
+    "doctrine/dbal": "^2.9"
   },
   "require-dev": {
     "symfony/var-dumper": "^4.1",

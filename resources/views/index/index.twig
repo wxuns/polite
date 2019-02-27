@@ -4,32 +4,14 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>yaf demo</title>
+    <title>Polite</title>
 </head>
 <style>
     td{border:solid 1px #4bb1b1}
 </style>
 <body>
 <div>
-    {{content}} I am {{name}}
-    <table>
-        <tr>
-            <td>ID</td>
-            <td>城市</td>
-            <td>城市编码</td>
-            <td>地区</td>
-            <td>邮编</td>
-        </tr>
-        {% for city in city%}
-        <tr>
-            <td>{{ city.ID }}</td>
-            <td>{{ city.Name }}</td>
-            <td>{{ city.CountryCode }}</td>
-            <td>{{ city.District }}</td>
-            <td>{{ city.Population }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    {{content}} I am {{name}}!
 </div>
 </body>
 </html>
