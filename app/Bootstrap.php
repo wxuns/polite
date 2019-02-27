@@ -56,7 +56,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     }
     /**
      * 插件.
-     *
+     *0000000
      * @param \Yaf\Dispatcher $dispatcher
      */
     public function _initPlugin(Yaf\Dispatcher $dispatcher)
