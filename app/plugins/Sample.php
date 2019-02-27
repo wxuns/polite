@@ -11,7 +11,6 @@ class SamplePlugin extends Yaf\Plugin_Abstract
 {
     public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response)
     {
-        dump(include(APPLICATION_PATH . '/conf/verifycsrftoken.php'));
     }
 
     public function routerShutdown(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response)

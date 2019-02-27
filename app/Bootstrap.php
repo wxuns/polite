@@ -51,6 +51,8 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     {
         //csrf验证
         class_alias('\Tool\Csrf','Csrf');
+        $csrf = new CsrfPlugin();
+        $dispatcher->registerPlugin($csrf);
     }
     /**
      * 插件.
@@ -73,7 +75,6 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     {
         $router = $dispatcher->getRouter();
         $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
-//        dump($config);
         $router->addConfig($config->routes);
     }
 
