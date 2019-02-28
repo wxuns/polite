@@ -5,5 +5,5 @@
  * @var array
  */
 return [
-        'hello'
+        'hello',
 ];

@@ -46,19 +46,23 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
 
         $whoops->register();
     }
+
     /**
-    * CSRF.
-    * @param \Yaf\Dispatcher $dispatcher
-    */
+     * CSRF.
+     *
+     * @param \Yaf\Dispatcher $dispatcher
+     */
     public function _initCsrf(Yaf\Dispatcher $dispatcher)
     {
         //csrf验证
-        class_alias('\Tool\Csrf','Csrf');
+        class_alias('\Tool\Csrf', 'Csrf');
         $csrf = new CsrfPlugin();
         $dispatcher->registerPlugin($csrf);
     }
+
     /**
      * 插件.
+     *
      * @param \Yaf\Dispatcher $dispatcher
      */
     public function _initPlugin(Yaf\Dispatcher $dispatcher)

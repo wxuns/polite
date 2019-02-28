@@ -4,8 +4,9 @@
  * Author: wxuns
  * Link: https://www.wxuns.cn
  * Date: 2019/2/20
- * Time: 10:10
+ * Time: 10:10.
  */
+
 namespace App\Console;
 
 use Symfony\Component\Console\Command\Command;

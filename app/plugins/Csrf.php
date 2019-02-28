@@ -4,26 +4,20 @@
  * Author: wxuns
  * Link: https://www.wxuns.cn
  * Date: 2019/2/27
- * Time: 11:29
+ * Time: 11:29.
  */
-
 class CsrfPlugin extends Yaf\Plugin_Abstract
 {
     public function routerStartup(Yaf\Request_Abstract $request, Yaf\Response_Abstract $response)
     {
-        if($request->getMethod() !== 'GET')
-        {
-            $except = include(APPLICATION_PATH . '/conf/verifycsrftoken.php');
-            if(!in_array($request->getRequestUri(),$except))
-            {
-                try
-                {
-                    Csrf::check( 'csrf_token', Request($request),true, 60*10, false );
+        if ($request->getMethod() !== 'GET') {
+            $except = include APPLICATION_PATH.'/conf/verifycsrftoken.php';
+            if (!in_array($request->getRequestUri(), $except)) {
+                try {
+                    Csrf::check('csrf_token', Request($request), true, 60 * 10, false);
                     // Run CSRF check, on POST data, in exception mode, with a validity of 10 minutes, in one-time mode.
                     // form parsing, DB inserts, etc.
-                }
-                catch ( Exception $e )
-                {
+                } catch (Exception $e) {
                     // CSRF attack detected
                     throw new Exception($e->getMessage());
                 }
