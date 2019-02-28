@@ -46,7 +46,10 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
 
         $whoops->register();
     }
-
+    /**
+    * CSRF.
+    * @param \Yaf\Dispatcher $dispatcher
+    */
     public function _initCsrf(Yaf\Dispatcher $dispatcher)
     {
         //csrf验证
@@ -56,7 +59,6 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     }
     /**
      * 插件.
-     *0000000
      * @param \Yaf\Dispatcher $dispatcher
      */
     public function _initPlugin(Yaf\Dispatcher $dispatcher)
