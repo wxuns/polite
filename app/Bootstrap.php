@@ -12,7 +12,14 @@
 class Bootstrap extends Yaf\Bootstrap_Abstract
 {
     protected static $config = '';
-
+    /**
+     * 开启session.
+     */
+    public function __initSession()
+    {
+        session_save_path(APPLICATION_PATH.'/storage/framework/session');
+        session_start();
+    }
     /**
      * composer自动加载.
      */
@@ -79,9 +86,15 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
      */
     public function _initRoute(Yaf\Dispatcher $dispatcher)
     {
+        $host = $_SERVER['HTTP_HOST'];
+        $defaultHost = $this::$config->application['host'];
         $router = $dispatcher->getRouter();
-        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
-        $router->addConfig($config->routes);
+        if(in_array($host,explode(',' ,$defaultHost))){
+            $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
+            $router->addConfig($config->routes);
+        } else {
+            $router->addRoute($host,new Handler\RouteHandler($host));
+        }
     }
 
     /**
