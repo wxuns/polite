@@ -93,7 +93,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
             $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
             $router->addConfig($config->routes);
         } else {
-            $router->addRoute($host,new Handler\RouteHandler($host));
+            new Handler\RouteHandler($host,$dispatcher);
         }
     }
 

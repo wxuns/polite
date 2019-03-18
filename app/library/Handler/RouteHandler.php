@@ -4,33 +4,45 @@
  */
 namespace Handler;
 
-class RouteHandler implements \Yaf\Route_Interface 
+class RouteHandler implements \Yaf\Route_Interface
 {
 	public $domain = '';
-	public function __construct($host)
+	private $module = '';
+	private $ini = '';
+	private $uri = '';
+    private $item = '';
+
+	public function __construct($host,$dispatcher)
 	{
 		$this->domain = $host;
-		$host_arr = (explode('.', $host));
-		foreach ($host_arr as $key => $value) {
-			$host_arr[$key] = ucwords($value);
-		};
-		$module = implode('', $host_arr);
-	}
-
-	public function addRoute($name,$route)
-	{
-		if (!$request->isCli()) {
-			# code...
-		}
+        $this->module = str_replace('.','', $host);
+        $this->ini = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/apianycc.ini', ini_get('yaf.environ'));
+        $this->uri = $dispatcher->getRequest()->getRequestUri();
+        //路由接管
+        if($this->ini->apianycc->{ltrim($this->uri,'/')}){
+            $this->item = $this->ini->apianycc->{ltrim($this->uri,'/')};
+            $this->route($dispatcher->getRequest());
+        }else{
+            //默认 '/' 路由
+            $route = new \Yaf\Route\Rewrite('/', [
+                    'module'=>$this->module,
+                    'controller'=>'Index',
+                    'action'=>'index'
+                ]);
+            $dispatcher->getRouter()->addRoute('/', $route);
+        }
 	}
 
 	public function assemble(array $info,array $query = null)
 	{
-
+	    return true;
 	}
 
 	public function route($request)
 	{
-		dump($request);
+        if (!$request->isCli()) {
+            $request->module = $this->module;
+            dump($this->ini);
+        }
 	}
 }
