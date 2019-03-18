@@ -90,11 +90,16 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
         $defaultHost = $this::$config->application['host'];
         $router = $dispatcher->getRouter();
         if(in_array($host,explode(',' ,$defaultHost))){
-            $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/routes.ini', ini_get('yaf.environ'));
-            $router->addConfig($config->routes);
+            $modulename = 'routes';
         } else {
-            new Handler\RouteHandler($host,$dispatcher);
+            $dispatcher->getInstance()->autoRender(FALSE);
+            $dispatcher->setDefaultModule("Index")->setDefaultController("Index")->setDefaultAction("index");
+            $modulename = str_replace('.','', $host);
         }
+
+        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/'.$modulename . '.ini', ini_get('yaf.environ'));
+        // dump($config);
+        $router->addConfig($config->routes);
     }
 
     /**

@@ -16,11 +16,11 @@ class RouteHandler implements \Yaf\Route_Interface
 	{
 		$this->domain = $host;
         $this->module = str_replace('.','', $host);
-        $this->ini = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/apianycc.ini', ini_get('yaf.environ'));
+        $this->ini = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/apiyafcn.ini', ini_get('yaf.environ'));
         $this->uri = $dispatcher->getRequest()->getRequestUri();
         //路由接管
-        if($this->ini->apianycc->{ltrim($this->uri,'/')}){
-            $this->item = $this->ini->apianycc->{ltrim($this->uri,'/')};
+        if($this->ini->apiyafcn->{explode(ltrim($this->uri,'/'))}){
+            $this->item = $this->ini->apiyafcn->{ltrim($this->uri,'/')};
             $this->route($dispatcher->getRequest());
         }else{
             //默认 '/' 路由
@@ -29,6 +29,7 @@ class RouteHandler implements \Yaf\Route_Interface
                     'controller'=>'Index',
                     'action'=>'index'
                 ]);
+
             $dispatcher->getRouter()->addRoute('/', $route);
         }
 	}
@@ -42,7 +43,8 @@ class RouteHandler implements \Yaf\Route_Interface
 	{
         if (!$request->isCli()) {
             $request->module = $this->module;
-            dump($this->ini);
+            $class = '\\Yaf\Route\\' . ucwords($this->item->type);
+            $route = new $class($this->item->match,$this->item->route->toArray());
         }
 	}
 }
