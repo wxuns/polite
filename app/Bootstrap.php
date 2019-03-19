@@ -89,11 +89,11 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
     public function _initRoute(Yaf\Dispatcher $dispatcher)
     {
         $base_url = $dispatcher->getRequest()->getBaseUri();
-        $request_url = rtrim($dispatcher->getRequest()->getRequestUri(),'/');
+        $request_url = rtrim($dispatcher->getRequest()->getRequestUri(), '/');
         $host = $_SERVER['HTTP_HOST'];
         $defaultHost = $this::$config->application['host'];
         $router = $dispatcher->getRouter();
-        if (in_array($host, explode(',', $defaultHost))||(stripos($request_url,$base_url)===0)) {
+        if (in_array($host, explode(',', $defaultHost)) || (stripos($request_url, $base_url) === 0)) {
             $modulename = 'routes';
         } else {
             $request = $dispatcher->getRequest();
