@@ -12,6 +12,7 @@
 class Bootstrap extends Yaf\Bootstrap_Abstract
 {
     protected static $config = '';
+
     /**
      * 开启session.
      */
@@ -20,6 +21,7 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
         session_save_path(APPLICATION_PATH.'/storage/framework/session');
         session_start();
     }
+
     /**
      * composer自动加载.
      */
@@ -89,15 +91,15 @@ class Bootstrap extends Yaf\Bootstrap_Abstract
         $host = $_SERVER['HTTP_HOST'];
         $defaultHost = $this::$config->application['host'];
         $router = $dispatcher->getRouter();
-        if(in_array($host,explode(',' ,$defaultHost))){
+        if (in_array($host, explode(',', $defaultHost))) {
             $modulename = 'routes';
         } else {
             $request = $dispatcher->getRequest();
-            $modulename = str_replace('.','', $host);
+            $modulename = str_replace('.', '', $host);
             $request->module = ucwords($modulename);
         }
 
-        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/'.$modulename . '.ini', ini_get('yaf.environ'));
+        $config = new \Yaf\Config\Ini(APPLICATION_PATH.'/conf/'.$modulename.'.ini', ini_get('yaf.environ'));
         $router->addConfig($config->routes);
     }
 
