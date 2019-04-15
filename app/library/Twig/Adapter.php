@@ -14,9 +14,11 @@ class Adapter implements \Yaf\View_Interface
     protected static $loader;
     protected static $twig;
     protected $variables = [];
+    protected static $option;
 
     public function __construct($template, $options)
     {
+        self::$option = $options;
         $this::$loader = new \Twig_Loader_Filesystem($template);
         $this::$twig = new \Twig_Environment($this::$loader, $options);
     }
@@ -68,7 +70,7 @@ class Adapter implements \Yaf\View_Interface
      *
      * @return string
      */
-    public function render($view_path, $tpl_vars = null)
+    public function render($view_path, $tpl_vars = [])
     {
         if (is_array($tpl_vars)) {
             $this->variables = array_merge($this->variables, $tpl_vars);
@@ -87,9 +89,9 @@ class Adapter implements \Yaf\View_Interface
      * @throws \Twig_Error_Runtime
      * @throws \Twig_Error_Syntax
      */
-    public function display($view_path, $tpl_vars = null)
+    public function display($view_path, $tpl_vars = [])
     {
-        echo $this::$twig->render($view_path, $tpl_vars);
+        echo $this::$twig->render($view_path . self::$option['extension'], $tpl_vars);
     }
 
     /**
