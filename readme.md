@@ -3,6 +3,7 @@
 [![Build Status](https://api.travis-ci.org/wxuns/polite.svg)](https://travis-ci.org/wxuns/polite)
 [![License](https://poser.pugx.org/wxuns/polite/license)](https://packagist.org/packages/wxuns/polite)
 
+<a href="http://prt.ruffood.com/jump"><img src="http://prt.ruffood.com/svg" /></a>
 **Polite做了那些事**
 ----
 1. 一个基于yaf的PHP框架
